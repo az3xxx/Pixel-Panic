@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://s335f5h2ufgi"]
+
+[ext_resource type="Texture2D" uid="uid://bvl4w7xjbcf7" path="res://assets/characters/semi_zombie.png" id="1_iqya8"]
+[ext_resource type="Script" path="res://character/semi_zombie.gd" id="2_jjnrh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfdcn"]
+atlas = ExtResource("1_iqya8")
+region = Rect2(0, 0, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr652"]
+atlas = ExtResource("1_iqya8")
+region = Rect2(0, 112, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgekw"]
+atlas = ExtResource("1_iqya8")
+region = Rect2(0, 224, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o35jr"]
+atlas = ExtResource("1_iqya8")
+region = Rect2(0, 336, 200, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jeq6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfdcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr652")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgekw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o35jr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq2g0"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7nbl"]
+size = Vector2(1, 1)
+
+[node name="semi_zombie" type="CharacterBody2D"]
+script = ExtResource("2_jjnrh")
+
+[node name="body" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(605, 327)
+scale = Vector2(0.0262505, 0.0290179)
+sprite_frames = SubResource("SpriteFrames_3jeq6")
+autoplay = "default"
+frame_progress = 0.627034
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(605, 327)
+shape = SubResource("RectangleShape2D_pq2g0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(605, 327)
+shape = SubResource("RectangleShape2D_y7nbl")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

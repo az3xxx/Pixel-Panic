@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://choltw57k4ixu"]
+
+[ext_resource type="Script" path="res://character/zombie_farmer.gd" id="1_m506m"]
+[ext_resource type="Texture2D" uid="uid://dop3mldbnbyjf" path="res://assets/characters/zombie_farmer.png" id="1_n0ugw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g57t"]
+size = Vector2(66, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3mni"]
+atlas = ExtResource("1_n0ugw")
+region = Rect2(0, 0, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nerf"]
+atlas = ExtResource("1_n0ugw")
+region = Rect2(0, 112, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sno0j"]
+atlas = ExtResource("1_n0ugw")
+region = Rect2(0, 224, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn12p"]
+atlas = ExtResource("1_n0ugw")
+region = Rect2(0, 336, 200, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n30gf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3mni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nerf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sno0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn12p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="zombie_farmer" type="CharacterBody2D"]
+script = ExtResource("1_m506m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(628, 313)
+shape = SubResource("RectangleShape2D_5g57t")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(628, 316)
+sprite_frames = SubResource("SpriteFrames_n30gf")
+frame_progress = 0.936378

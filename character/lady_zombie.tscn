@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://skxgwo7crgp8"]
+
+[ext_resource type="Texture2D" uid="uid://ct3qdplw0c283" path="res://assets/characters/lady zombie.png" id="1_iaid0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofn2r"]
+size = Vector2(65, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_defu2"]
+atlas = ExtResource("1_iaid0")
+region = Rect2(0, 0, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxi3h"]
+atlas = ExtResource("1_iaid0")
+region = Rect2(0, 112, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh5qy"]
+atlas = ExtResource("1_iaid0")
+region = Rect2(0, 224, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr5l0"]
+atlas = ExtResource("1_iaid0")
+region = Rect2(0, 336, 200, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6dpr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_defu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxi3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh5qy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr5l0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="lady_zombie" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(430.5, 288)
+shape = SubResource("RectangleShape2D_ofn2r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(435, 290)
+sprite_frames = SubResource("SpriteFrames_x6dpr")
+frame_progress = 0.166523

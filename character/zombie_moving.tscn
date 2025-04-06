@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://0xltj2oys0b7"]
+
+[ext_resource type="Texture2D" uid="uid://v1ja3t2bufjx" path="res://assets/characters/zombie_moving.png" id="1_ljui5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyrab"]
+size = Vector2(65, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgd67"]
+atlas = ExtResource("1_ljui5")
+region = Rect2(0, 0, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dvj8"]
+atlas = ExtResource("1_ljui5")
+region = Rect2(0, 112, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0igm"]
+atlas = ExtResource("1_ljui5")
+region = Rect2(0, 224, 200, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bj7j"]
+atlas = ExtResource("1_ljui5")
+region = Rect2(0, 336, 200, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x4qyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgd67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dvj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0igm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bj7j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="zombie_moving" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(567.5, 288)
+shape = SubResource("RectangleShape2D_qyrab")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(567, 294)
+sprite_frames = SubResource("SpriteFrames_x4qyd")
+frame_progress = 0.408639

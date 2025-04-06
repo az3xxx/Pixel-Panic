@@ -1,0 +1,141 @@
+[gd_scene load_steps=20 format=3 uid="uid://tmym78w7extx"]
+
+[ext_resource type="Texture2D" uid="uid://1ra2jxdfjpma" path="res://assets/characters/attackAngryMushroom.png" id="1_7itd7"]
+[ext_resource type="Texture2D" uid="uid://c4sc3cycbc8hb" path="res://assets/characters/idle.png" id="1_u0ah6"]
+[ext_resource type="Script" path="res://character/mushroom.gd" id="1_w7tby"]
+[ext_resource type="Texture2D" uid="uid://csgc56mnmd6v6" path="res://assets/characters/jumping mushroom.png" id="3_h6vwe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lktix"]
+atlas = ExtResource("1_7itd7")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lvst"]
+atlas = ExtResource("1_7itd7")
+region = Rect2(0, 2048, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81bex"]
+atlas = ExtResource("1_7itd7")
+region = Rect2(0, 4096, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnpxr"]
+atlas = ExtResource("1_7itd7")
+region = Rect2(0, 6144, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6k12"]
+atlas = ExtResource("1_u0ah6")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2ucp"]
+atlas = ExtResource("1_u0ah6")
+region = Rect2(0, 2048, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f03ru"]
+atlas = ExtResource("1_u0ah6")
+region = Rect2(0, 4096, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkjh5"]
+atlas = ExtResource("1_u0ah6")
+region = Rect2(0, 6144, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe5fd"]
+atlas = ExtResource("3_h6vwe")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwsqi"]
+atlas = ExtResource("3_h6vwe")
+region = Rect2(0, 2048, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqys4"]
+atlas = ExtResource("3_h6vwe")
+region = Rect2(0, 4096, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv070"]
+atlas = ExtResource("3_h6vwe")
+region = Rect2(0, 6144, 2048, 2048)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ki6pp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lktix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lvst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81bex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnpxr")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6k12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2ucp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f03ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkjh5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe5fd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwsqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqys4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv070")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psw7g"]
+size = Vector2(151.5, 126.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejee4"]
+radius = 32.0156
+
+[node name="mushroom" type="CharacterBody2D"]
+script = ExtResource("1_w7tby")
+
+[node name="body" type="AnimatedSprite2D" parent="."]
+position = Vector2(3883, 805)
+scale = Vector2(0.139648, 0.108398)
+sprite_frames = SubResource("SpriteFrames_ki6pp")
+animation = &"jump"
+autoplay = "idle"
+frame_progress = 0.835237
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(3883, 805)
+scale = Vector2(0.139648, 0.108398)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7.16107, -18.4503)
+scale = Vector2(7.16084, 9.22522)
+shape = SubResource("RectangleShape2D_psw7g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3886, 798)
+shape = SubResource("CircleShape2D_ejee4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
