@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4uoeym4ecol6"]
+
+[ext_resource type="PackedScene" uid="uid://d1yda0i7qx0ls" path="res://harta_veche/node.tscn" id="5_6406w"]
+[ext_resource type="PackedScene" uid="uid://wdsdu7kqgdde" path="res://map.tscn" id="21_6pqjs"]
+[ext_resource type="PackedScene" uid="uid://d103agf1mb3iq" path="res://character/player2.tscn" id="23_d0r7w"]
+[ext_resource type="Script" path="res://character/player_2.gd" id="23_gi3gt"]
+[ext_resource type="PackedScene" uid="uid://s335f5h2ufgi" path="res://character/semi_zombie.tscn" id="24_x1dkh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hckcy"]
+size = Vector2(14, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8env5"]
+size = Vector2(83, 18)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("21_6pqjs")]
+
+[node name="semi_zombie2" parent="." instance=ExtResource("24_x1dkh")]
+z_index = 10
+position = Vector2(7866, -1505.53)
+scale = Vector2(10, 10)
+
+[node name="player2" parent="." instance=ExtResource("23_d0r7w")]
+unique_name_in_owner = true
+z_index = 10
+position = Vector2(14694, 1722)
+script = ExtResource("23_gi3gt")
+
+[node name="Camera2D" type="Camera2D" parent="player2"]
+visible = false
+position = Vector2(339, 114)
+zoom = Vector2(2, 2)
+
+[node name="semi_zombie3" parent="." instance=ExtResource("24_x1dkh")]
+z_index = 10
+position = Vector2(7782, -1468)
+scale = Vector2(10, 10)
+
+[node name="semi_zombie4" parent="." instance=ExtResource("24_x1dkh")]
+z_index = 10
+position = Vector2(7826, -1550)
+scale = Vector2(10, 10)
+
+[node name="semi_zombie5" parent="." instance=ExtResource("24_x1dkh")]
+z_index = 10
+position = Vector2(7738, -1531)
+scale = Vector2(10, 10)
+
+[node name="casa1" type="Area2D" parent="."]
+position = Vector2(4100, -10000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="casa1"]
+position = Vector2(-243, 6143.5)
+shape = SubResource("RectangleShape2D_hckcy")
+
+[node name="casa2" type="Area2D" parent="."]
+position = Vector2(4100, -10000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="casa2"]
+position = Vector2(1418, 6418.5)
+shape = SubResource("RectangleShape2D_hckcy")
+
+[node name="casa3" type="Area2D" parent="."]
+position = Vector2(4100, -10000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="casa3"]
+position = Vector2(737, 5850.5)
+shape = SubResource("RectangleShape2D_hckcy")
+
+[node name="casa4" type="Area2D" parent="."]
+position = Vector2(4100, -10000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="casa4"]
+position = Vector2(-217, 5597)
+shape = SubResource("RectangleShape2D_hckcy")
+
+[node name="Node" parent="." instance=ExtResource("5_6406w")]
+
+[node name="Button" type="Button" parent="."]
+z_index = 5
+offset_left = 16011.0
+offset_top = 1797.0
+offset_right = 16100.0
+offset_bottom = 1828.0
+text = "enter cave"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(16056.5, 1842)
+shape = SubResource("RectangleShape2D_8env5")
+
+[connection signal="body_entered" from="casa1" to="player2" method="_on_casa_1_body_entered"]
+[connection signal="body_entered" from="casa2" to="player2" method="_on_casa_2_body_entered"]
+[connection signal="body_entered" from="casa3" to="player2" method="_on_casa_3_body_entered"]
+[connection signal="body_entered" from="casa4" to="player2" method="_on_casa_4_body_entered"]
+[connection signal="pressed" from="Button" to="player2" method="_on_button_pressed"]
+[connection signal="body_entered" from="Area2D" to="player2" method="_on_area_2d_body_entered"]

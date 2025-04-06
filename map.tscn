@@ -1,0 +1,296 @@
+[gd_scene load_steps=10 format=3 uid="uid://wdsdu7kqgdde"]
+
+[ext_resource type="Script" path="res://map.gd" id="1_2g6nc"]
+[ext_resource type="AudioStream" uid="uid://yaqw8ulug4bj" path="res://music/One Man Symphony - A New Day's Hurry (Free) - 02 A New Day's Hurry (General Background Music).mp3" id="2_08a1e"]
+[ext_resource type="AudioStream" uid="uid://dohnvfrbb72ey" path="res://music/One Man Symphony - Destruction Bringer (Free) - 01 Boss Fight Theme 01.mp3" id="3_4b3je"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjvr8"]
+bg_color = Color(0.212305, 0.212305, 0.212305, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uojmg"]
+bg_color = Color(0.5032, 0.74, 0.720267, 0.368627)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8vfl"]
+bg_color = Color(0.74, 0.5032, 0.522933, 0.368627)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8dnm"]
+bg_color = Color(0.501961, 0.65098, 0.741176, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7lwn"]
+bg_color = Color(0.670588, 0.623529, 0.396078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb2n5"]
+bg_color = Color(0.65098, 0.611765, 0.196078, 1)
+
+[node name="Map" type="CanvasLayer"]
+script = ExtResource("1_2g6nc")
+
+[node name="BACKPACK" type="Button" parent="."]
+z_index = 100
+offset_left = 42.0
+offset_top = 549.0
+offset_right = 122.0
+offset_bottom = 622.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HAND" type="Button" parent="."]
+z_index = 100
+offset_left = 1039.0
+offset_top = 553.0
+offset_right = 1118.0
+offset_bottom = 622.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_vjvr8")
+metadata/_edit_use_anchors_ = true
+
+[node name="EXIT" type="Button" parent="."]
+z_index = 100
+offset_left = 42.0
+offset_top = 13.0
+offset_right = 122.0
+offset_bottom = 86.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MUSIC" type="Button" parent="."]
+z_index = 100
+offset_left = 1051.0
+offset_top = 10.0
+offset_right = 1131.0
+offset_bottom = 83.0
+metadata/_edit_use_anchors_ = true
+
+[node name="music_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_08a1e")
+
+[node name="music_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4b3je")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.211765)
+z_index = 100
+offset_left = 301.0
+offset_top = 76.0
+offset_right = 898.0
+offset_bottom = 551.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="letter_text" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 93.0
+offset_right = 133.0
+offset_bottom = 116.0
+text = "Villagers' note"
+
+[node name="axe_text" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 93.0
+offset_right = 247.0
+offset_bottom = 116.0
+text = "Axe"
+
+[node name="seed_text" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 91.0
+offset_right = 392.0
+offset_bottom = 114.0
+text = "Seed"
+
+[node name="journal_text" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 96.0
+offset_right = 544.0
+offset_bottom = 120.0
+text = "Journal"
+
+[node name="fire_crackers_text" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 214.0
+offset_right = 139.0
+offset_bottom = 237.0
+text = "Fire crackers"
+
+[node name="torch_text" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 214.0
+offset_right = 251.0
+offset_bottom = 237.0
+text = "Torch"
+
+[node name="weapon_text" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 213.0
+offset_right = 412.0
+offset_bottom = 236.0
+text = "Weapon"
+
+[node name="ritual_text" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 211.0
+offset_right = 538.0
+offset_bottom = 234.0
+text = "Ritual"
+
+[node name="letter" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 20.0
+offset_right = 118.0
+offset_bottom = 89.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_uojmg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b8vfl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8dnm")
+
+[node name="axe" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 20.0
+offset_right = 267.0
+offset_bottom = 89.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_uojmg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b8vfl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8dnm")
+
+[node name="seed" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 21.0
+offset_right = 412.0
+offset_bottom = 90.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_uojmg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b8vfl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8dnm")
+
+[node name="ritual" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 139.0
+offset_right = 549.0
+offset_bottom = 208.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_uojmg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b8vfl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8dnm")
+
+[node name="torch" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 138.0
+offset_right = 264.0
+offset_bottom = 207.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_uojmg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b8vfl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8dnm")
+
+[node name="weapon" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 138.0
+offset_right = 413.0
+offset_bottom = 207.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_uojmg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b8vfl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8dnm")
+
+[node name="journal" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 23.0
+offset_right = 551.0
+offset_bottom = 92.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_uojmg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b8vfl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8dnm")
+
+[node name="fire_crackers" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 138.0
+offset_right = 120.0
+offset_bottom = 207.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_uojmg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b8vfl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8dnm")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 100
+offset_left = 377.0
+offset_top = 356.0
+offset_right = 821.0
+offset_bottom = 517.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v7lwn")
+
+[node name="prev_button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 134.0
+offset_right = 408.0
+offset_bottom = 157.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bb2n5")
+text = "<"
+
+[node name="next_button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 134.0
+offset_right = 437.0
+offset_bottom = 157.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bb2n5")
+text = ">"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 371.0
+offset_bottom = 151.0
+
+[node name="time" type="Panel" parent="."]
+z_index = 100
+offset_left = 915.0
+offset_top = 9.0
+offset_right = 1033.0
+offset_bottom = 42.0
+metadata/_edit_use_anchors_ = true
+
+[node name="time_text" type="Label" parent="time"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 1.0
+offset_right = 118.0
+offset_bottom = 33.0
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="BACKPACK" to="." method="_on_backpack_pressed"]
+[connection signal="pressed" from="EXIT" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MUSIC" to="." method="_on_music_pressed"]
+[connection signal="pressed" from="ColorRect/letter" to="." method="_on_letter_pressed"]
+[connection signal="pressed" from="ColorRect/axe" to="." method="_on_axe_pressed"]
+[connection signal="pressed" from="ColorRect/seed" to="." method="_on_seed_pressed"]
+[connection signal="pressed" from="ColorRect/ritual" to="." method="_on_ritual_pressed"]
+[connection signal="pressed" from="ColorRect/torch" to="." method="_on_torch_pressed"]
+[connection signal="pressed" from="ColorRect/weapon" to="." method="_on_weapon_pressed"]
+[connection signal="pressed" from="ColorRect/journal" to="." method="_on_journal_pressed"]
+[connection signal="pressed" from="ColorRect/fire_crackers" to="." method="_on_fire_crackers_pressed"]
+[connection signal="pressed" from="Panel/prev_button" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="Panel/next_button" to="." method="_on_next_button_pressed"]

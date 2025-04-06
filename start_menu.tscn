@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bund0ccnwxkna"]
+
+[ext_resource type="Script" path="res://start_menu.gd" id="1_7hkyb"]
+[ext_resource type="AudioStream" uid="uid://dtwdt6hwkwt35" path="res://music/One Man Symphony - In The Blink Of An Eye (Free) - 03 Time Is A Multiplier (Action 03).mp3" id="2_83fww"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aev1e"]
+bg_color = Color(0.586237, 0.546285, 0.892422, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Start_menu" type="Node2D"]
+script = ExtResource("1_7hkyb")
+
+[node name="start" type="Button" parent="."]
+offset_left = 436.0
+offset_top = 377.0
+offset_right = 668.0
+offset_bottom = 446.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_aev1e")
+text = "START"
+
+[node name="new_game" type="Button" parent="."]
+offset_left = 436.0
+offset_top = 458.0
+offset_right = 668.0
+offset_bottom = 527.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_aev1e")
+text = "NEW GAME"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 437.0
+offset_top = 540.0
+offset_right = 669.0
+offset_bottom = 609.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_aev1e")
+text = "QUIT
+"
+
+[node name="intro_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_83fww")
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

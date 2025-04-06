@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5jgqvy2krafg"]
+
+[ext_resource type="Texture2D" uid="uid://cvrhrd8iyg1oh" path="res://assets/modified/crops/wheat.png" id="1_4flbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(14, 17)
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_onrkg")
